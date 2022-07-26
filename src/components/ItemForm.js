@@ -20,13 +20,15 @@ function ItemForm({onItemFormSubmit}) {
     }); 
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    onItemFormSubmit ({
+  const newItem = {
       id: uuid(), // the `uuid` library can be used to generate a unique id
       name: formData.name,
       category: formData.category,
-    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onItemFormSubmit (newItem); //new data item to be passed to app.js through shoppinglist.js
   }
   
   return (
